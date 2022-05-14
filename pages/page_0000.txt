@@ -1,0 +1,5 @@
+;   МАЛЫЙ ВАРИАНТ ЗАДАЧИ MICRO.
+MICRPL/CP/FP=MICRPL/MP
+ASG=LPO:6
+TASK=...MIC
+//

@@ -1,0 +1,11 @@
+RUN MICRPL
+.ENABLE SUBSTITUTION
+.ASK L ХОТИТЕ ПОСМОТРЕТЬ СОЗДАННЫЕ ВАМИ ФАЙЛЫ
+.IFF L .GOTO 1
+PIP *,DAT;*/LI
+.2: .ASK M ХОТИТЕ УДАЛИТЬ СОЗДАННЫЕ ФАЙЛЫ
+.IFF M .GOTO 1
+PIP *.DAT;*/SD
+GOTO 2
+.1: ;ВЫ ЗАКОНЧИЛИ РАБОТУ С ПРОГРАММОЙ *МИКРО*
+/

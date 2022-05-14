@@ -1,0 +1,41 @@
+SUBROUTINE AMINPL(IT,NV,X2)
+
+DIMENSION XXX9..99X2292X0
+EGAAGMAT.NGAN.sakrio.udra
+
+DIMENSION X2(30)
+19 FORMAT(8E10.3)
+110 FORMAT(5X,'МЕТОД ВРАЩЕНИЯ КООРДИНАТ',1)
+120 FORMAT(/2X,'ЗНАЧЕНИЕ ЦЕЛЕВОЙ ФУНКЦИИ = ',1E10.3)
+101 FORMAT(/7X,'ЗНАЧЕНИЕ ИЗМЕНЯЕМЫХ ПАРАМЕТРОВ',/)
+111 - FORMAT(/T7,'МЕТОД ВРАЩЕНИЯ КООРДИНАТ РОЗЕНБРОКА')
+112 FORMAT(T7,'ЦЕЛЕВАЯ ФУНКЦИЯ =',F13.3)
+COMMON/CC/BC,X0
+COMMON/TT/X1
+COMMON/RA/ IN,OG,IS,E0
+ND=0
+DO 51 I=1,30
+51 X2(I)=0.
+EK=.01
+N=NV
+WRITE(5,111)
+D01J=1,N,1
+DO 1I=1,N,1
+IF(I-J)2,3,2
+2 U(J,I)=0
+GOTO1
+3 U(J,I)=1
+1 CONTINUE
+M=0
+DO4I=1,IT,1
+4 X1(I)=X0(I)
+IP=1
+CALL PIL(IP,FS2,IDD)
+ND=ND+1
+X2(ND)=FS2
+WRITE(5,112) FS2
+IF(FS2.LE.8C(14)) GOTO 130
+DO5I=1,N,1
+NP=IN(I)
+5 Y0(I)=X0(NP)
+6 DO 7 I=1,N

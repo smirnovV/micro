@@ -84,32 +84,31 @@ def aminpl(it, nv, x2):
     e[k] *= 3.0
     if ia[k] == 2:
         ia[k] = 1
-        e[k] = -e[k] / 2.0
+        e[k] = -e[k] / 2.0 # Label 21
         if ia[k] == 1 or abs(e[k]) < ek:
             ia[k] = 0
-    for i in range(1, n + 1):
+    for i in range(1, n + 1): # Loop label 29
         if ia[i]: # Where is the label 8?
             pass
-    for jj in range(1, n + 1):
+    for jj in range(1, n + 1): # Loop label 32
         j = n + 1 - jj
         for i in range(1, n + 1):
             if j == n:
-                bb = 0
+                bb = 0 # Label 34
                 break # Or not? And which loop?
             else:
-                bb = b[i, j + 1]
+                bb = b[i, j + 1] # Label 33
                 r[i,j] = d[j] * u[i, j] + bb
-    for j in range(1, n + 1):
+    for j in range(1, n + 1): # Loop label 35
         e[j] = 0
         for i in range(1, n + 1):
             f[j] = e[j] + b[i, j] ** 2
             e[j] = e[j] ** .5
     if m > 0:
-        if abs((fs2 - FVOR) / (1. + abs(fs2))) - ek <= 0:
+        if abs((fs2 - FVOR) / (1. + abs(fs2))) - ek <= 0: # Label 38
             pass # GOTO 100
-    # else:
     fvor = fs2
-    for j1 in range(2, n + 1):
+    for j1 in range(2, n + 1): # Loop label 41
         j = n + 2 - j1
         z2 = e[j - 1] * e[j]
         for i in range(1, n + 1):
@@ -117,24 +116,23 @@ def aminpl(it, nv, x2):
                 u[i, j] = d[j - 1] * b[i, j] - u[i, j - 1] * e[j] ** 2 / z2
     if e[1] <= 1e-7:
         pass # GOTO 100
-    for i in range(1, n + 1):
+    for i in range(1, n + 1): # Loop label 46
         u[i, 1] = b[i, 1] / e[1]
     m += 1
     nd += 1
     x2[nd] = fs2
-    for i in range(i, nv): # TODO: reconsider
+    for i in range(i, nv): # Loop label 52
+        # TODO: reconsider
         x2[nd + i] = y[i]
     print(f'Целевая функция: {fs2:13.3}')
-    # TYPE 101
-    # TYPE 19,(Y(I),I=1,NV)
+    print(f'Значение изменяемых параметров: {y[i], i == 1, nv}')
     # GOTO 6
     nd += 1
     x2[nd] = fs2
     for i in range(1, nv + 1):
         x2[nd + i] = y[1]
     print(f'Целевая функция: {fs2:13.3}')
-    # TYPE 101
-    # TYPE 19,(Y(I),I=1,NV)
+    print(f'Значение изменяемых параметров: {y[i], i == 1, nv}')
     for i in range(1, it + 1):
         x1[i] = x0[i]
     x2[30] = float(nd)
